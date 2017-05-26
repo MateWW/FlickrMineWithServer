@@ -5,10 +5,18 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchComponent } from './search/search.component';
+import { ListComponent } from './list/list.component';
+import { LightBoxComponent } from './light-box/light-box.component';
+import { PagingComponent } from './list/paging.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    ListComponent,
+    LightBoxComponent,
+    PagingComponent
   ],
   imports: [
     BrowserModule,
