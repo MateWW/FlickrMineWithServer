@@ -1,24 +1,11 @@
 interface IPhotoUrls{
   id: number,
-  thumbnail: {
-    label: string,
-    width: string,
-    height: string,
-    source: string,
-    url: string,
-    media: string
-  },
-  orginal: {
-    label: string,
-    width: string,
-    height: string,
-    source: string,
-    url: string,
-    media: string
-  }
+  thumbnailUrl:string,
+  orginalUrl:string
 }
+
 interface IPhotoListElement{
-    id: string,
+    id: number,
     owner: string,
     secret: string,
     server: string,
@@ -30,28 +17,15 @@ interface IPhotoListElement{
 }
 
 interface IPhotoListElementDetails{
-  id: string,
-  owner: {
-    nsid: string,
-    username: string,
-    realname: string,
-    location: string,
-    iconserver: string,
-    iconfarm: number,
-    path_alias: string
-  },
-  title: {
-    _content: string
-  },
-  description: {
-    _content: string
-  },
-  dates: {
-    posted: string,
-    taken: string,
-    takengranularity: string,
-    takenunknown: string,
-    lastupdate: string
-  }
+  id: number,
+  secret: string,
+  exif:[
+    {
+      label:string,
+      raw:{
+        _content:string
+      }
+    }
+  ]
 }
 export { IPhotoListElement, IPhotoListElementDetails , IPhotoUrls}

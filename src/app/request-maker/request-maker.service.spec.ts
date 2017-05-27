@@ -5,6 +5,7 @@ import { RequestMakerService } from './request-maker.service';
 import { IPhotoUrls , IPhotoListElementDetails } from '../interfaces';
 
 describe('RequestMakerService', () => {
+  let element;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports : [
@@ -14,6 +15,17 @@ describe('RequestMakerService', () => {
         RequestMakerService        
       ]
     });
+    element = {
+        farm:5,
+        id:"34790913391",
+        isfamily:false,
+        isfriend:false,
+        ispublic:true,
+        owner:"90535065@N03",
+        secret:"450a072460",
+        server:"4243",
+        title:"test123"
+      }
   });
 
   it('[PhotosList]should try download "testowafe" but no data returned ', async(inject([RequestMakerService], (service: RequestMakerService) => {
@@ -36,22 +48,20 @@ describe('RequestMakerService', () => {
     });
   })));
 
-  it('[PhotoUrls] should download photos adress for thumbnail or orginal size display',async(inject([RequestMakerService], (service: RequestMakerService) => {
-      service.getPhotoUrl(34867730986)
-      .subscribe((value:IPhotoUrls)=>{
-        expect( value.id ).toBeTruthy();
-        expect( value.thumbnail ).toBeTruthy();
-        expect( value.orginal ).toBeTruthy();
-      });
+  it('[PhotoUrls] should create photos adress for thumbnail or orginal size display',async(inject([RequestMakerService], (service: RequestMakerService) => {
+      let urls = service.getPhotoUrl(element)
+        expect( urls.id ).toBeDefined();
+        expect( typeof urls.orginalUrl ).toBe( 'string' );
+        expect( typeof urls.thumbnailUrl ).toBe( 'string' );
   })));
 
+
   it('[PhotoDetails] should download information about photo' ,async(inject([RequestMakerService], (service: RequestMakerService) => {
-      service.getPhotoDetails(34867730986)
+      service.getPhotoDetails(element)
       .subscribe((value:IPhotoListElementDetails)=>{
-        expect( value.id ).toBeTruthy();
-        expect( value.description ).toBeTruthy();
-        expect( value.title ).toBeTruthy();
-        expect( value.dates ).toBeTruthy();
+        console.log(value);
+        expect( value.id ).toBeDefined();
+        expect( value.exif ).toBeDefined();
       });
   })))
 

@@ -1,18 +1,29 @@
 import { Observable } from 'rxjs';
-import { IPhotoUrls } from '../interfaces';
+import { IPhotoUrls , IPhotoListElement } from '../interfaces';
 
-import { GetPhoto } from './get-photos';
 
-export class GetPhotoUrl extends GetPhoto{
 
-    constructor( http ){
-        super( http );
+export class GetPhotoUrl {
+
+    constructor(){ }
+
+    getUrl( element:IPhotoListElement ){
+        return <IPhotoUrls>{
+            id : element.id || 0,
+            orginalUrl: this.getOriginal(element),
+            thumbnailUrl: this.getThumbnail(element)
+        }
     }
 
-    getUrl( photoId ){
-       this.get( photoId , '/api/photolinks/' , ( photos ) => {
-         photos.id = parseInt(photoId);
-       });
+    private getOriginal( element:IPhotoListElement ){
+        if( !element.farm || !element.server || !element.id || !element.secret)
+            return ``;
+        return `https://farm${element.farm || 0}.staticflickr.com/${element.server || 0}/${element.id || 0}_${element.secret||0}_o.jpg`
+    }
+    private getThumbnail( element:IPhotoListElement ){
+        if( !element.farm || !element.server || !element.id || !element.secret)
+            return ``;
+        return `https://farm${element.farm || 0}.staticflickr.com/${element.server || 0}/${element.id || 0}_${element.secret||0}_q.jpg`
     }
 
 }

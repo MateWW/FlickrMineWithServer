@@ -5,33 +5,34 @@ import { Observable } from 'rxjs';
 import { IPhotoUrls , IPhotoListElement , IPhotoListElementDetails} from '../interfaces';
 import { GetPhotoUrl } from './get-photos-url';
 import { GetPhotosDetails } from './get-photos-details';
+import { GetPhotoList } from './get-photos-list';
 
 @Injectable()
 export class RequestMakerService {
 
   private PhotosUrl:GetPhotoUrl;
   private PhotosDetails:GetPhotosDetails;
+  private PhotosList:GetPhotoList;
 
   constructor( private http: Http ) {
-    this.PhotosUrl = new GetPhotoUrl(http);
+    this.PhotosUrl = new GetPhotoUrl();
     this.PhotosDetails = new GetPhotosDetails(http);
+    this.PhotosList = new GetPhotoList(http);
   }
 
   getPhotosList( text:string ){
-    if(!text || text.trim().length == 0)
-      return Observable.of(undefined);
-    return this.http.post("/api/search",{
-      searchtext: text
-    })
-    .map(( response ) => ( response.json() ));
+    return this.PhotosList.getList( text );
   }
 
-  getPhotoUrl( photoId:number ){
-    return this.PhotosUrl.getUrl( photoId );
+
+  getPhotoUrl( photo:IPhotoListElement ){
+    return <IPhotoUrls>this.PhotosUrl.getUrl( photo );
   }
 
-  getPhotoDetails( photoId:number ){
-    return this.PhotosDetails.getDetails( photoId );
+
+  getPhotoDetails( photo:IPhotoListElement ){
+    return this.PhotosDetails.getDetails( photo.id , photo.secret );
   }
 
+  
 }
