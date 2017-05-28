@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-light-box',
+  selector: 'light-box',
   templateUrl: './light-box.component.html',
   styleUrls: ['./light-box.component.scss']
 })

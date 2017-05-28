@@ -21,11 +21,23 @@ interface IPhotoListElementDetails{
   secret: string,
   exif:[
     {
-      label:string,
+      label: string,
       raw:{
-        _content:string
+        _content: string
       }
     }
   ]
 }
-export { IPhotoListElement, IPhotoListElementDetails , IPhotoUrls}
+
+interface IPhotoPrepared{
+  photoElement: IPhotoListElement,
+  url: IPhotoUrls
+}
+
+interface IPageRange{
+  active: number,
+  pageRage: [number]
+}
+
+
+export { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls, IPhotoPrepared, IPageRange }

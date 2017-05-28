@@ -1,4 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
+
+import { PhotoListService } from './photo-list.service';
+import { CommunicationService } from "../communication.service";
+import { RequestMakerService } from "../request-maker/request-maker.service";
 
 import { PagingComponent } from './paging.component';
 
@@ -8,7 +13,17 @@ describe('PagingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagingComponent ]
+      imports:[
+        HttpModule
+      ],
+      declarations: [ 
+        PagingComponent 
+      ],
+      providers: [
+        PhotoListService,
+        CommunicationService,
+        RequestMakerService
+      ]
     })
     .compileComponents();
   }));

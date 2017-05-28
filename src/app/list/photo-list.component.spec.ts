@@ -1,27 +1,30 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
-import { SearchComponent } from './search.component';
+import { PhotoListComponent } from './photo-list.component';
+import { PagingComponent } from './paging.component';
+import { ListComponent } from './list.component';
 
-import { SearchService } from "./search.service";
+import { PhotoListService } from './photo-list.service';
 import { CommunicationService } from "../communication.service";
 import { RequestMakerService } from "../request-maker/request-maker.service";
 
-describe('SearchComponent', () => {
-  let component: SearchComponent;
-  let fixture: ComponentFixture<SearchComponent>;
+describe('PhotoListComponent', () => {
+  let component: PhotoListComponent;
+  let fixture: ComponentFixture<PhotoListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports:[
-        FormsModule,
-        ReactiveFormsModule,
         HttpModule
       ],
-      declarations: [ SearchComponent ],
-      providers:[
-        SearchService,
+      declarations: [ 
+        PhotoListComponent,
+        PagingComponent,
+        ListComponent
+      ],
+      providers: [
+        PhotoListService,
         CommunicationService,
         RequestMakerService
       ]
@@ -30,7 +33,7 @@ describe('SearchComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchComponent);
+    fixture = TestBed.createComponent(PhotoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

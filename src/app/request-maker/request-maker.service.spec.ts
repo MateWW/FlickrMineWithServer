@@ -59,7 +59,6 @@ describe('RequestMakerService', () => {
   it('[PhotoDetails] should download information about photo' ,async(inject([RequestMakerService], (service: RequestMakerService) => {
       service.getPhotoDetails(element)
       .subscribe((value:IPhotoListElementDetails)=>{
-        console.log(value);
         expect( value.id ).toBeDefined();
         expect( value.exif ).toBeDefined();
       });

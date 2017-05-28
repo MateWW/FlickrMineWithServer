@@ -1,3 +1,8 @@
-<p>
-  list works!
-</p>
+<section class="card-group d-flex justify-content-center justify-content-md-between">
+  <div class="card" *ngFor='let photo of list' (click)="showOrginalPhoto(photo)">
+    <img class="card-img-top" [src]="photo.url.thumbnailUrl" alt="Card image cap">
+    <div class="card-img-overlay">
+      {{ photo.photoElement.title }}
+    </div>
+  </div>
+</section>

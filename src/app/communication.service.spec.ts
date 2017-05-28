@@ -1,6 +1,6 @@
 import { TestBed, inject , async } from '@angular/core/testing';
 import { HttpModule } from '@angular/http'
-import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls } from './interfaces';
+import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls , IPhotoPrepared } from './interfaces';
 
 import { CommunicationService } from './communication.service';
 import { RequestMakerService } from './request-maker/request-maker.service';
@@ -31,11 +31,13 @@ describe('CommunicationService', () => {
   });
 
   it('should push found photos by stream', async(inject([CommunicationService], (service: CommunicationService) => {
-    service.getPhotosStream().subscribe( (list:[IPhotoListElement]) => {
+    service.getPhotosStream().subscribe( (list:[IPhotoPrepared]) => {
       if(list.length == 0)
         expect(typeof list).toBe('object');
-      else
-        expect(list[0].id).toBeTruthy();
+      else{
+        expect(list[0].photoElement).toBeTruthy();
+        expect(list[0].url).toBeTruthy();
+      }
     });
     service.searchPhotos('test');
     service.searchPhotos('safgogaofohsaohfohisahofa');

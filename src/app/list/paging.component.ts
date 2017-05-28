@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoListService } from './photo-list.service';
+import { IPageRange } from '../interfaces';
 
 @Component({
   selector: 'app-paging',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagingComponent implements OnInit {
 
-  constructor() { }
+  pagesRange:IPageRange;
+
+  constructor( private photoListService: PhotoListService ) {
+    photoListService.getPageStream()
+      .subscribe( ( pagesRange:IPageRange ) => {
+        this.pagesRange = pagesRange;
+      });
+  }
+
 
   ngOnInit() {
   }
+
+  chosePage( page:number ){
+    this.photoListService.choosePage( +page );
+  }
+
 
 }

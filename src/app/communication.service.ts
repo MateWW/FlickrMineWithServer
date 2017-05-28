@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls } from './interfaces';
+import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls, IPhotoPrepared } from './interfaces';
 
 import { RequestMakerService } from './request-maker/request-maker.service';
 
@@ -19,8 +19,28 @@ export class CommunicationService {
     this.requestMaker.getPhotosList( text )
       .subscribe( (list:[IPhotoListElement]) => {
         this.foundPhotos = list;
-        this.photosStream.next(<[IPhotoListElement]>list);
+        this.photosStream.next(<[IPhotoPrepared]>this.preparePhotoList( list ));
       });
+  }
+
+  private preparePhotoList( list:[IPhotoListElement] ){
+    let preparedList:[IPhotoPrepared] = <[IPhotoPrepared]>[];
+    
+    for( let photo of list )
+    {
+      let urls:IPhotoUrls = this.getPhotoUrl(photo);
+
+      if( urls.id == 0 || urls.orginalUrl.length == 0 || urls.thumbnailUrl.length == 0 )
+        continue;
+      
+      let preparedPhoto:IPhotoPrepared = {
+          photoElement: photo,
+          url: urls
+      }
+      preparedList.push(preparedPhoto);
+    }
+
+    return preparedList;
   }
 
   getPhotosStream(){
