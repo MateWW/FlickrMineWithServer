@@ -29,7 +29,7 @@ export class LightBoxPhotoComponent implements OnInit {
 
   url:string
   constructor( private lightBox:LightBoxService ) { }
-
+  
   ngOnInit() {
     this.lightBox.getPhotoUrlStream()
       .subscribe( ( photoUrls:IPhotoUrls) =>{
