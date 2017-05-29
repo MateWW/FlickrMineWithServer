@@ -2,15 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-## Modules
+## Start project
 
-## Development server
+Open first `server` folder and run server by this command :
+    
+    node index.js
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Back to main folder and start angular server:
 
-## Code scaffolding
+    npm start
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Now you should find working site at `http://localhost:4200/`. 
 
 ## Build
 
@@ -29,14 +31,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `/api/search/` 
  -  Method : `POST`
  -  Parameters : `searchtext`
- -  Return : `JSON Object`
+ -  Return : `JSON`
 
 `/api/photoinfo/`
  - Method : `POST`
- - Parameteres : `photoId`
- - Return : `JSON Object` - photo details
+ - Parameteres : `photoId` and `secret`
+ - Return : `JSON` 
  
-`/api/photolinks/`
- - Method : `POST`
- - Parameteres : `photoId`
- - Return : `JSON Object` - photo links with sizes
