@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
@@ -7,14 +6,15 @@ import { GetPhotoUrl } from './get-photos-url';
 import { GetPhotosDetails } from './get-photos-details';
 import { GetPhotoList } from './get-photos-list';
 
-@Injectable()
-export class RequestMakerService {
+export class RequestMaker {
+  private http:Http;
 
   private PhotosUrl:GetPhotoUrl;
   private PhotosDetails:GetPhotosDetails;
   private PhotosList:GetPhotoList;
 
-  constructor( private http: Http ) {
+  constructor( http: Http ) {
+    this.http = http;
     this.PhotosUrl = new GetPhotoUrl();
     this.PhotosDetails = new GetPhotosDetails(http);
     this.PhotosList = new GetPhotoList(http);

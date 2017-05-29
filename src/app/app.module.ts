@@ -9,7 +9,6 @@ import { LightBoxModule } from "./light-box/light-box.module";
 import { AppComponent } from './app.component';
 
 import { CommunicationService } from "./communication.service";
-import { RequestMakerService } from "./request-maker/request-maker.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { RequestMakerService } from "./request-maker/request-maker.service";
     HttpModule
   ],
   providers: [
-    RequestMakerService,
     CommunicationService,
   ],
   bootstrap: [AppComponent]

@@ -6,7 +6,6 @@ import { PagingComponent } from './paging.component';
 import { ListComponent } from './list.component';
 
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
 import { PhotoListService } from "./photo-list.service";
 
 
@@ -21,7 +20,6 @@ import { PhotoListService } from "./photo-list.service";
   ],
   providers:[
     CommunicationService,
-    RequestMakerService,
     PhotoListService
   ],
   exports:[

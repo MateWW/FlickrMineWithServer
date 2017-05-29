@@ -4,7 +4,6 @@ import { ListComponent } from './list.component';
 
 import { PhotoListService } from './photo-list.service';
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -20,8 +19,7 @@ describe('ListComponent', () => {
       ],
       providers: [
         PhotoListService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     })
     .compileComponents();

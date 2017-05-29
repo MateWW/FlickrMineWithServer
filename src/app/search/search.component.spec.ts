@@ -6,7 +6,7 @@ import { SearchComponent } from './search.component';
 
 import { SearchService } from "./search.service";
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
+
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -22,8 +22,7 @@ describe('SearchComponent', () => {
       declarations: [ SearchComponent ],
       providers:[
         SearchService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     })
     .compileComponents();

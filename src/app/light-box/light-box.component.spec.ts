@@ -7,7 +7,7 @@ import { LightBoxDetailsComponent } from './light-box-details.component';
 
 import { LightBoxService } from './light-box.service';
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
+
 
 
 describe('LightBoxComponent', () => {
@@ -24,8 +24,8 @@ describe('LightBoxComponent', () => {
       ],
       providers:[
         LightBoxService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
+
       ]
     })
     .compileComponents();

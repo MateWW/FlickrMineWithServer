@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http'
 import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls , IPhotoPrepared } from './interfaces';
 
 import { CommunicationService } from './communication.service';
-import { RequestMakerService } from './request-maker/request-maker.service';
+
 
 describe('CommunicationService', () => {
   var element;
@@ -13,8 +13,7 @@ describe('CommunicationService', () => {
         HttpModule
       ],
       providers: [
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     });
     element = {

@@ -5,7 +5,7 @@ import { LightBoxPhotoComponent } from './light-box-photo.component';
 
 import { LightBoxService } from './light-box.service';
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
+
 
 describe('LightBoxPhotoComponent', () => {
   let component: LightBoxPhotoComponent;
@@ -17,8 +17,7 @@ describe('LightBoxPhotoComponent', () => {
       declarations: [ LightBoxPhotoComponent ],
       providers:[
         LightBoxService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     })
     .compileComponents();

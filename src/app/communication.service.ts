@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import { Subject } from 'rxjs';
 
 import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls, IPhotoPrepared } from './interfaces';
 
-import { RequestMakerService } from './request-maker/request-maker.service';
+import { RequestMaker } from './request-maker/request-maker';
 
 @Injectable()
 export class CommunicationService {
 
-  constructor( private requestMaker: RequestMakerService) {}
+  private requestMaker:RequestMaker;
+
+  constructor( private http:Http) {
+    this.requestMaker = new RequestMaker( http );
+  }
 
   private foundPhotos:[IPhotoListElement] = <[IPhotoListElement]>[];
   private photosStream = new Subject();

@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { SearchService } from './search.service';
 
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
+
 
 describe('SearchService', () => {
   beforeEach(() => {
@@ -14,8 +14,7 @@ describe('SearchService', () => {
       ],
       providers:[
         SearchService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     });
   });

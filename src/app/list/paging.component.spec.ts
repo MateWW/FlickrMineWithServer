@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http';
 
 import { PhotoListService } from './photo-list.service';
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
+
 
 import { PagingComponent } from './paging.component';
 
@@ -21,8 +21,7 @@ describe('PagingComponent', () => {
       ],
       providers: [
         PhotoListService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     })
     .compileComponents();

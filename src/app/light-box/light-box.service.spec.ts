@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { LightBoxService } from './light-box.service';
 
 import { CommunicationService } from "../communication.service";
-import { RequestMakerService } from "../request-maker/request-maker.service";
+
 
 import { IPhotoListElement, IPhotoListElementDetails, IPhotoUrls } from '../interfaces';
 
@@ -15,8 +15,7 @@ describe('LightBoxService', () => {
       imports: [ HttpModule ],
       providers:[
         LightBoxService,
-        CommunicationService,
-        RequestMakerService
+        CommunicationService
       ]
     });
     element = JSON.parse(`{"id":"34818900221","owner":"141807364@N07","secret":"8d8d397d63","server":"4252","farm":5,"title":"INJUSTICE ANYWHERE THREATENS JUSTICE EVERYWHERE","ispublic":1,"isfriend":0,"isfamily":0}`);
