@@ -5,11 +5,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Start project
 
 Open first `server` folder and run server by this command :
-    
+
+    npm install
     node index.js
 
 Back to main folder and start angular server:
 
+    npm install
     npm start
 
 Now you should find working site at `http://localhost:4200/`. 
