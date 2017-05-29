@@ -1,3 +1,6 @@
-<p>
-  light-box works!
-</p>
+<section *ngIf="visible" class="lightBox">
+  <light-box-photo></light-box-photo>
+  <light-box-details></light-box-details>
+  <div class="lightBox__close" (click)="close()">&#x2716;</div>
+  <div class="lightBox__background" (click)="close()"></div>
+</section>

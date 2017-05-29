@@ -32,7 +32,7 @@ describe('RequestMakerService', () => {
     service.getPhotosList("testowafe")
     .subscribe( ( photos ) => {
       if(!photos)
-        expect(photos).toBeUndefined();
+        expect(photos).toBeUndefined();      
       else
         expect(photos.length).toEqual(0);
     });

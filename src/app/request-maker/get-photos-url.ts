@@ -18,7 +18,7 @@ export class GetPhotoUrl {
     private getOriginal( element:IPhotoListElement ){
         if( !element.farm || !element.server || !element.id || !element.secret)
             return ``;
-        return `https://farm${element.farm || 0}.staticflickr.com/${element.server || 0}/${element.id || 0}_${element.secret||0}_o.jpg`
+        return `https://farm${element.farm || 0}.staticflickr.com/${element.server || 0}/${element.id || 0}_${element.secret||0}.jpg`
     }
     private getThumbnail( element:IPhotoListElement ){
         if( !element.farm || !element.server || !element.id || !element.secret)

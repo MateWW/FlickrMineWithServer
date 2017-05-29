@@ -35,6 +35,7 @@ export class GetPhotosDetails{
             .catch( (e) =>{
                 return Observable.of(this.emptyPhotoDetails);
             })
+            .map( ( photoDetails ) => ( typeof photoDetails.photo != "undefined" ? photoDetails.photo : photoDetails ))
     }
 
 }

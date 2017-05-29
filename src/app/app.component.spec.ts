@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { HttpModule } from '@angular/http'
 import { PhotoListModule } from './list/photo-list.module';
 import { SearchModule } from './search/search.module';
+import { LightBoxModule } from "./light-box/light-box.module";
 
 import { AppComponent } from './app.component';
 
@@ -11,7 +12,8 @@ describe('AppComponent', () => {
       imports: [
         PhotoListModule,
         SearchModule,
-        HttpModule
+        LightBoxModule,
+        HttpModule        
       ],
       declarations: [
         AppComponent

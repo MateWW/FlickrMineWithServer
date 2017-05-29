@@ -66,8 +66,6 @@ export class PhotoListService {
     }
 
    this.PageStream.next(<IPageRange>rageObject);
-   console.log(page,start,end);
-
    return <IPageRange>rageObject;
   }
 

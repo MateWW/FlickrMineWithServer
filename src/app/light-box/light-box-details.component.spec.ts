@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 
-import { LightBoxComponent } from './light-box.component';
-import { LightBoxPhotoComponent } from './light-box-photo.component';
 import { LightBoxDetailsComponent } from './light-box-details.component';
 
 import { LightBoxService } from './light-box.service';
@@ -10,18 +8,14 @@ import { CommunicationService } from "../communication.service";
 import { RequestMakerService } from "../request-maker/request-maker.service";
 
 
-describe('LightBoxComponent', () => {
-  let component: LightBoxComponent;
-  let fixture: ComponentFixture<LightBoxComponent>;
+describe('LightBoxDetailsComponent', () => {
+  let component: LightBoxDetailsComponent;
+  let fixture: ComponentFixture<LightBoxDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ HttpModule ],
-      declarations: [ 
-        LightBoxComponent,
-        LightBoxDetailsComponent,
-        LightBoxPhotoComponent
-      ],
+      declarations: [ LightBoxDetailsComponent ],
       providers:[
         LightBoxService,
         CommunicationService,
@@ -32,7 +26,7 @@ describe('LightBoxComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LightBoxComponent);
+    fixture = TestBed.createComponent(LightBoxDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
